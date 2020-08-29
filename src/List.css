@@ -1,0 +1,24 @@
+.list-container {
+  display: flex;
+  margin: 0 10vw 0 10vw;
+}
+
+body {
+  background-color: #dadbd3;
+}
+
+.todo {
+  flex: 0.5;
+}
+
+.completed {
+  flex: 0.5;
+  text-align: right;
+}
+
+.form {
+  display: flex;
+  padding: 2vh 0 2vh;
+  justify-content: center;
+  margin: 0 auto;
+}
