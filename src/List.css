@@ -1,10 +1,12 @@
 .list-container {
-  display: flex;
   margin: 0 10vw 5vh 10vw;
   min-height: 100vh;
   box-shadow: 5px 10px 8px #888888;
   background-color: khaki;
   border-radius: 5px;
+  display: flex;
+  font-weight: bold;
+  font-size: 24px;
 }
 
 body {
@@ -13,14 +15,18 @@ body {
 }
 
 .todo-list {
-  flex-basis: 50%;  
   border-right-style: solid;
   text-align: center;
+  width: 50%;
+  word-break: break-all;
+  padding: 0 10px 0 10px;
 }
 
 .completed {
-  flex: 0.5;
   text-align: center;
+  width: 50%;
+  word-break: break-all;
+  padding: 0 10px 0 10px;
 }
 
 .form {
@@ -34,14 +40,21 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  position: relative; 
+  position: relative;
+  border-style: solid;
+  margin: 10px 0 20px 0;
+  background-color: #03fca5;
+  box-shadow: 5px 5px 8px #888888;
 }
 
 .todo-item {
+  padding: 5px 90px 10px 90px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.todo-button {
+.remove-button {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 5px;
+  right: 5px;
 }

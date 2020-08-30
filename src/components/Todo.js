@@ -3,9 +3,11 @@ import React from "react";
 export default (props) => {
   return (
     <div className="todo-container">
-      <div className="todo-item">{props.item.todo}</div>
-      <button className="todo-button" value={props.item.id} onClick={props.handleComplete}>
-        {props.item.completed ? "Cancel" : "Complete"}
+      <div onClick={props.handleComplete} className="todo-item">
+        {props.item.todo}
+      </div>
+      <button className="remove-button" onClick={props.handleRemove}>
+        X
       </button>
     </div>
   );

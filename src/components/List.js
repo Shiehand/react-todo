@@ -14,11 +14,10 @@ export default class List extends Component {
     });
   };
 
-  handleComplete = (event) => {
-    console.log(JSON.stringify(this.state.items));
+  handleComplete = (id) => {
     this.setState({
       items: this.state.items.map((item) => {
-        if (item.id === event.target.value) {
+        if (item.id === id) {
           return {
             ...item,
             completed: !item.completed,
@@ -28,6 +27,35 @@ export default class List extends Component {
         }
       }),
     });
+  };
+
+  handleRemove = (id) => {
+    this.setState({
+      items: this.state.items.filter((item) => {
+        return id !== item.id;
+      }),
+    });
+  };
+
+  removeAllCompleted = () => {
+    this.setState({
+      items: this.state.items.filter((item) => !item.completed),
+    });
+  };
+
+  completeAll = () => {
+    this.setState((state) => ({
+      items: state.items.map((item) => {
+        if (!item.completed) {
+          return {
+            ...item,
+            completed: !item.completed,
+          };
+        } else {
+          return item;
+        }
+      }),
+    }));
   };
 
   render() {
@@ -45,7 +73,8 @@ export default class List extends Component {
                 return (
                   <Todo
                     key={item.id}
-                    handleComplete={(event) => this.handleComplete(event)}
+                    handleComplete={() => this.handleComplete(item.id)}
+                    handleRemove={() => this.handleRemove(item.id)}
                     item={item}
                   />
                 );
@@ -53,6 +82,9 @@ export default class List extends Component {
                 return null;
               }
             })}
+            {this.state.items.some((item) => !item.completed) ? (
+              <button onClick={this.completeAll}>Complete All</button>
+            ) : null}
           </div>
 
           <div className="completed">
@@ -62,7 +94,8 @@ export default class List extends Component {
                 return (
                   <Todo
                     key={item.id}
-                    handleComplete={(event) => this.handleComplete(event)}
+                    handleComplete={() => this.handleComplete(item.id)}
+                    handleRemove={() => this.handleRemove(item.id)}
                     item={item}
                   />
                 );
@@ -70,6 +103,9 @@ export default class List extends Component {
                 return null;
               }
             })}
+            {this.state.items.some((item) => item.completed) ? (
+              <button onClick={this.removeAllCompleted}>Remove All</button>
+            ) : null}
           </div>
         </div>
       </div>
