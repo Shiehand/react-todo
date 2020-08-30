@@ -1,19 +1,26 @@
 .list-container {
   display: flex;
-  margin: 0 10vw 0 10vw;
+  margin: 0 10vw 5vh 10vw;
+  min-height: 100vh;
+  box-shadow: 5px 10px 8px #888888;
+  background-color: khaki;
+  border-radius: 5px;
 }
 
 body {
+  height: 100vh;
   background-color: #dadbd3;
 }
 
-.todo {
-  flex: 0.5;
+.todo-list {
+  flex-basis: 50%;  
+  border-right-style: solid;
+  text-align: center;
 }
 
 .completed {
   flex: 0.5;
-  text-align: right;
+  text-align: center;
 }
 
 .form {
@@ -21,4 +28,20 @@ body {
   padding: 2vh 0 2vh;
   justify-content: center;
   margin: 0 auto;
+}
+
+.todo-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative; 
+}
+
+.todo-item {
+}
+
+.todo-button {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

@@ -5,6 +5,7 @@ export default class Form extends React.Component {
   state = {
     text: "",
   };
+
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -28,7 +29,7 @@ export default class Form extends React.Component {
           name="text"
           value={this.state.text}
           onChange={this.handleChange}
-          placeholder="todo..."
+          placeholder="Add a todo"
         />
         <button onClick={this.handleSubmit} type="submit">
           Submit

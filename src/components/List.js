@@ -36,8 +36,9 @@ export default class List extends Component {
         <div className="form">
           <Form onSubmit={this.addItem} />
         </div>
+
         <div className="list-container">
-          <div className="todo">
+          <div className="todo-list">
             Todo:
             {this.state.items.map((item) => {
               if (!item.completed) {
